@@ -23,6 +23,11 @@ as well as the body of validation.
 Using ```org.springframework.cloud.function.compiler.java.SimpleClassLoader``` the rules are loadeded and compiled only during runtime.
 
 
+__HOW TO RUN__:
+```sh
+$ mvn spring-boot:run
+```
+
 __NOTE__: The functionality might be extended to use js nashorn to provide js functions.
 
 
