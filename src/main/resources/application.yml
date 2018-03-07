@@ -1,16 +1,15 @@
-validation.rules:
-  hasLowerCase:
-    in: String
-    out: Boolean
-    lambda: |
-      str -> {
-        int cnt = 0;
-
-        for (char c : str.toCharArray()) {
-          int n = c - 'a';
-            if (n >= 0 && n < 26) {
-              return true;
+spring.cloud.function:
+  compile:
+    hasLowerCase:
+      inputType: String
+      outputType: Boolean
+      lambda: |
+          str -> {
+            for (char c : str.toCharArray()) {
+              int n = c - 'a';
+              if (n >= 0 && n < 26) {
+                return true;
+              }
             }
+            return false;
           }
-        return false;
-      }
