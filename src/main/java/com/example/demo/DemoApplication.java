@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 import static java.lang.System.out;
@@ -15,14 +15,14 @@ import static java.lang.System.out;
 public class DemoApplication {
 
     @Autowired
-    private Function<String, Boolean> hasLowerCase;
+    private Function<String, Optional<Boolean>> emailValidation;
 
     @Bean
     public CommandLineRunner commandLineRunner() {
         return args -> {
             out.println("#################################### started ####################################");
-            out.println(hasLowerCase.apply("true"));
-            out.println(hasLowerCase.apply("FALSE"));
+            out.println(emailValidation.apply("some@email.com"));
+            out.println(emailValidation.apply("wrong.val"));
             out.println("#################################### done ####################################");
         };
     }
